@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class AuthorRestClient {
 
+
     private final RestTemplate restTemplate;
     private final String authorsUrl;
 

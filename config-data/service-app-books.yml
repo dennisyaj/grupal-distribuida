@@ -17,4 +17,4 @@ server:
 
 AuthorRestClient:
   mp-rest:
-    url: ${http://localhost:8080}
+    url: http://localhost:8080

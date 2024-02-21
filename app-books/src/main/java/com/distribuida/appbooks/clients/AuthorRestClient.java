@@ -9,11 +9,23 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class AuthorRestClient {
 
+    private final RestTemplate restTemplate;
+    private final String authorsUrl;
+
+    @Autowired
+    public AuthorRestClient(RestTemplate restTemplate, @Value("${app.authors.url}") String authorsUrl) {
+        this.restTemplate = restTemplate;
+        this.authorsUrl = authorsUrl;
+    }
+
+    /*
     @Autowired
     private RestTemplate restTemplate;
 
     @Value("${app.authors.url}")
     private String authorsUrl;
+
+     */
 
     public AuthorDto findById(Integer id) {
         return restTemplate.getForObject(authorsUrl + "/authors/" + id, AuthorDto.class);

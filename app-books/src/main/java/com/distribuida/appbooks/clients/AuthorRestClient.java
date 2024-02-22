@@ -3,18 +3,16 @@ package com.distribuida.appbooks.clients;
 import com.distribuida.appbooks.dtos.AuthorDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
+@Component
 public class AuthorRestClient {
-
-
     private final RestTemplate restTemplate;
     private final String authorsUrl;
 
-    @Autowired
-    public AuthorRestClient(RestTemplate restTemplate, @Value("${app.authors.url}") String authorsUrl) {
+    public AuthorRestClient(RestTemplate restTemplate, @Value(value = "${app.authors.url}") String authorsUrl) {
         this.restTemplate = restTemplate;
         this.authorsUrl = authorsUrl;
     }

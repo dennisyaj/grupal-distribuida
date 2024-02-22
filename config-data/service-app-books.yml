@@ -18,3 +18,7 @@ server:
 AuthorRestClient:
   mp-rest:
     url: http://localhost:8080
+
+app:
+  authors:
+    url: http://localhost:9090

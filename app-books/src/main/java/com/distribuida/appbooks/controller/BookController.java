@@ -17,12 +17,14 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/books")
 public class BookController {
+    private final AuthorRestClient authorRestClient;
+    private final BookDao repo;
 
     @Autowired
-    private AuthorRestClient authorRestClient;
-
-    @Autowired
-    private BookDao repo;
+    public BookController(AuthorRestClient authorRestClient, BookDao repo) {
+        this.authorRestClient = authorRestClient;
+        this.repo = repo;
+    }
 
     @GetMapping
     public List<BookDto> findAll() {
